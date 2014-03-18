@@ -1,1 +1,4 @@
-# 志愿云系统
+# yii-project-template
+
+## INSTALL
+* set cache to mod 777
