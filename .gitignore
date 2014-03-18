@@ -37,9 +37,6 @@ node_modules
 dist
 common/libs/framework
 cache/*
-!cache/.htaccess
+!cache/.gitempty
 upload/*
 !upload/.gitempty
-_frontend/resource/assets
-_backend/resource/assets
-public/
