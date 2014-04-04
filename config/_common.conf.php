@@ -29,6 +29,7 @@ return array(
 
     'components'        => array(
         'themeManager'   => getConfig( 'themeManager' ) ,
+        'request'           => getConfig( 'request' ) ,
         'user'           => getConfig( 'user' ) ,
         'db'             => getConfig( 'db' ) ,
         'errorHandler'   => getConfig( 'errorHandler' ) ,

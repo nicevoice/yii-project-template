@@ -14,7 +14,7 @@ if ( !is_file( ROOT . "/product.server" ) ) {
     defined( 'YII_TRACE_LEVEL' ) or define( 'YII_TRACE_LEVEL' , 3 );
 }
 
-$framework = dirname( __FILE__ ) . '/libs/framework/yii.php';
+$framework = ROOT . '/libs/framework/yii.php';
 $function  = dirname( __FILE__ ) . '/common.function.php';
 include $function;
 

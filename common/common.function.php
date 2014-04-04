@@ -11,8 +11,8 @@ function getConfig($name, $is_admin_conf = false)
     if( $is_admin_conf )
         $not_admin_suffix = '.admin';
 
-    $file_name = ROOT . '/common/config/conf/' . $name . $not_admin_suffix . '.conf.php';
-    $local_file_name = ROOT . '/common/config/local/' . $name . $not_admin_suffix . '.conf.php';
+    $file_name = ROOT . '/config/conf/' . $name . $not_admin_suffix . '.conf.php';
+    $local_file_name = ROOT . '/config/local/' . $name . $not_admin_suffix . '.conf.php';
 
     $conf = include($file_name);
     if( file_exists($local_file_name))

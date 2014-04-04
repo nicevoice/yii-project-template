@@ -40,3 +40,5 @@ cache/*
 !cache/.gitempty
 upload/*
 !upload/.gitempty
+libs/*
+!libs/.gitempty

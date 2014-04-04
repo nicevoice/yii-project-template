@@ -2,9 +2,16 @@ Options +FollowSymLinks
 IndexIgnore */*
 RewriteEngine on
 
-# if a directory or a file exists, use it directly
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} -f
+RewriteRule ^ %{REQUEST_FILENAME} [L]
 
-# otherwise forward it to index.php
-RewriteRule . index.php
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteCond %{REQUEST_FILENAME}/index.php -f
+RewriteRule ^ %{REQUEST_FILENAME}/index.php [L]
+
+# for admin view
+RewriteCond %{REQUEST_URI} ^/admin
+RewriteRule . admin.php [L]
+#for nomal
+RewriteCond %{REQUEST_URI} !^/admin
+RewriteRule . index.php [QSA,L]
