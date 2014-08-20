@@ -1,2 +1,7 @@
-<legend>后台首页</legend>
-这里放点什么好呢？二萌宝吧。
+<?php
+$this->widget('zii.widgets.CListView', array(
+    'dataProvider'=>$dataProvider,
+    'itemView'=>'item',
+    'itemsTagName' => 'ul'
+));
+?>

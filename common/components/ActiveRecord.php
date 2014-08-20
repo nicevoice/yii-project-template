@@ -64,7 +64,7 @@ class ActiveRecord extends CActiveRecord
 
     public function rules ()
     {
-        $conf   = include( ROOT . '/common/config/model.conf.php' );
+        $conf   = include( PATH_BASE . '/common/config/model.conf.php' );
         $result = $conf[ self::getRealClass( get_called_class() ) ][ 'rule' ];
         if ( empty( $result ) ) {
             return array();
@@ -75,7 +75,7 @@ class ActiveRecord extends CActiveRecord
 
     public function relations ()
     {
-        $conf   = include( ROOT . '/common/config/model.conf.php' );
+        $conf   = include( PATH_BASE . '/common/config/model.conf.php' );
         $result = $conf[ self::getRealClass( get_called_class() ) ][ 'relation' ];
 
         if ( empty( $result ) ) {
@@ -87,7 +87,7 @@ class ActiveRecord extends CActiveRecord
 
     public function attributeLabels ()
     {
-        $conf = include( ROOT . '/common/config/model.conf.php' );
+        $conf = include( PATH_BASE . '/common/config/model.conf.php' );
 
         $result = $conf[ self::getRealClass( get_called_class() ) ][ 'label' ];
         if ( empty( $result ) ) {
@@ -99,7 +99,7 @@ class ActiveRecord extends CActiveRecord
 
     public function getHint ( $attribute )
     {
-        $conf = include( ROOT . '/common/config/model.conf.php' );
+        $conf = include( PATH_BASE . '/common/config/model.conf.php' );
 
         if ( isset( $conf[ self::getRealClass( get_called_class() ) ][ 'hint' ][ $attribute ] ) ) {
             $result = $conf[ self::getRealClass( get_called_class() ) ][ 'hint' ][ $attribute ];
@@ -116,7 +116,7 @@ class ActiveRecord extends CActiveRecord
 
     public function scopes ()
     {
-        $conf   = include( ROOT . '/common/config/model.conf.php' );
+        $conf   = include( PATH_BASE . '/common/config/model.conf.php' );
         $result = isset( $conf[ self::getRealClass( get_called_class() ) ][ 'scope' ] ) ? $conf[ self::getRealClass( get_called_class() ) ][ 'scope' ] : array();
         if ( empty( $result ) ) {
             return array();
