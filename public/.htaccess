@@ -1,0 +1,9 @@
+Options +FollowSymLinks
+IndexIgnore */*
+RewriteEngine on
+
+RewriteCond %{REQUEST_FILENAME} -f
+RewriteRule ^ %{REQUEST_FILENAME} [L]
+
+RewriteCond %{REQUEST_URI} !^/admin
+RewriteRule . index.php [QSA,L]

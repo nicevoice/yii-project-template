@@ -6,7 +6,7 @@
             'username'           => 'root' ,
             'password'           => '' ,
             'charset'            => 'utf8' ,
-            'tablePrefix'        => 'tb_' ,
+            'tablePrefix'        => '' ,
             'enableProfiling'    => TRUE ,
             'enableParamLogging' => TRUE ,
         );

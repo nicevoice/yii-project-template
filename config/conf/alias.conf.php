@@ -1,13 +1,11 @@
 <?php
     $alias = array(
-        'root'   => ROOT ,
-        'front'  => ROOT . '/_frontend' ,
-        'admin'  => ROOT . '/_backend' ,
-        'common' => ROOT . '/common' ,
-        'com'    => ROOT . '/common/components' ,
-        'vendor' => ROOT . '/common/vendor' ,
-        'hook'   => ROOT . '/common/hook' ,
-        'upload' => ROOT . '/upload'
+        'root'   => PATH_BASE ,
+        'common' => PATH_BASE . '/common' ,
+        'com'    => PATH_BASE . '/common/components' ,
+        'vendor' => PATH_BASE . '/common/vendor' ,
+        'hook'   => PATH_BASE . '/common/hook' ,
+        'upload' => PATH_BASE . '/upload'
     );
 
     foreach ( $alias as $key => $value ) {

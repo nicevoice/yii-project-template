@@ -23,21 +23,7 @@ class BaseController extends CController
      */
     public function actions ()
     {
-        return array(
-            // captcha action renders the CAPTCHA image displayed on the contact page
-            'error'       => array(
-                'class' => 'common.actions.ErrorAction' ,
-            ) ,
-            'login'       => array(
-                'class' => 'common.actions.ELoginAction' ,
-            ) ,
-            'uploadimage' => array(
-                'class' => 'common.actions.EUploadImageAction' ,
-            ) ,
-            'e'           => array(
-                'class' => 'common.actions.EAction' ,
-            ) ,
-        );
+     return array();
     }
 
     /**
@@ -47,28 +33,13 @@ class BaseController extends CController
      */
     public function Ext ( $name , $param = array() )
     {
-        $prefix = "Front";
-        if ( defined( "_ADMIN_" ) && _ADMIN_ ) {
-            $prefix = "Admin";
-        }
         $name = ucfirst( strtolower( $name ) );
 
-        $ext_full_path = sprintf( "ext.%s.E_%s.E_%s" , $prefix , $name , $name );
+        $ext_full_path = sprintf( "ext.%s.%s" ,  $name , $name );
 
         $this->widget( $ext_full_path , $param );
     }
 
-    /**
-     * 调用能用组件
-     * @param $name
-     * @param $param
-     */
-    public function Com ( $name , $param = array() )
-    {
-        $prefix        = "Common";
-        $ext_full_path = sprintf( "ext.%s.E_%s.E_%s" , $prefix , $name , $name );
-        $this->widget( $ext_full_path , $param );
-    }
 
     /**
      * 返回用于AJAX操作的JSON数据
@@ -79,58 +50,6 @@ class BaseController extends CController
      */
     public function renderJSON ( $status = TRUE , $message = '' , $extra = '' )
     {
-        if ( is_array( $status ) ) {
-            if ( empty( $message ) && isset( $status[ 'message' ] ) ) {
-                $message = $status[ 'message' ];
-            }
-            if ( empty( $extra ) && isset( $status[ 'extra' ] ) ) {
-                $extra = $status[ 'extra' ];
-            }
-            if ( isset( $status[ 'status' ] ) ) {
-                $status = $status[ 'status' ];
 
-            } else {
-
-                $status = TRUE;
-            }
-        }
-        //如果MESSAGE为空的时候配置默认常量值
-        if ( $status && empty( $message ) ) {
-            $message = self::JSON_MSG_TRUE;
-
-        } elseif ( $status == FALSE && empty( $message ) ) {
-
-            $message = self::JSON_MSG_FALSE;
-        }
-
-        $json_back = array(
-            'status'  => $status ,
-            'message' => $message ,
-            'extra'   => $extra
-        );
-
-        header( 'Content-type: application/json; charset=utf-8' );
-        echo json_encode( $json_back );
-        exit;
     }
-
-    /**
-     * 异常请求
-     */
-    public function invalidRequest ()
-    {
-        $this->layout = FALSE;
-        $this->render( '//public/invalid_request' );
-        exit;
-    }
-
-    /**
-     * 显示一个空模板
-     */
-    public function renderEmpty ( $word = "没有数据可显示！" )
-    {
-        $this->render( '//public/empty_list' , array( 'data' => $word ) );
-    }
-
-
 }

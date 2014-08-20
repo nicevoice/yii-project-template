@@ -9,6 +9,6 @@ class IndexController extends BaseController
 {
     public function actionIndex ()
     {
-        echo 1;
+        $this->render('index');
     }
 }

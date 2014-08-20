@@ -1,5 +1,5 @@
 <?php
     return array(
-        'basePath'   => ROOT . '/themes' ,
+        'basePath'   => PATH_BASE . '/themes' ,
         "themeClass" => "ETheme" ,
     );
