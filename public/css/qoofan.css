@@ -202,6 +202,9 @@ h1 img, h2 img, h3 img, h4 img, h5 img, h6 img {margin:0;}
     background-color: #fafafc;
     border-top: 1px solid #eaeaec;
 }
+.widget .widget-footer a{
+    padding: 0 5px;
+}
 
 /*nav*/
 #nav {
