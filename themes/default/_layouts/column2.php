@@ -5,6 +5,7 @@
             <?php echo $content; ?>
         </div>
         <div id="side">
+            <?php $this->ext('MpInfo') ?>
             <?php $this->ext('LatestArticle') ?>
         </div>
     </div>

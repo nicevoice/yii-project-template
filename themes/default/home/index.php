@@ -1,5 +1,6 @@
 <?php
-$this->widget('zii.widgets.CListView', array(
+$this->widget('ext.widget.ListView', array(
+    'cssFile'       => false,
     'dataProvider'  => $dataProvider,
     'itemView'      => '/home/item',
     'itemsTagName'  => 'ul',
@@ -9,6 +10,7 @@ $this->widget('zii.widgets.CListView', array(
     'ajaxUpdate'    => false,
     'pager'         => array(
         'class'                => 'CLinkPager',
+        'cssFile'              => false,
         'selectedPageCssClass' => 'current',
         'header'               => '',
         'htmlOptions'          => array(
