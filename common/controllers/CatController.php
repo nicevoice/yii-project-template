@@ -2,35 +2,23 @@
 
 class CatController extends BaseController
 {
-	public function actionIndex()
+	public function actionIndex($id)
 	{
-		$this->render('index');
-	}
+        $cat_user = PublicUser::getCatUserIdList($id);
+        $criteria = new CDbCriteria();
+        $criteria->addInCondition('user_id', $cat_user);
+        $criteria->order = 'id desc';
 
-	// Uncomment the following methods and override them if needed
-	/*
-	public function filters()
-	{
-		// return the filter configuration for this controller, e.g.:
-		return array(
-			'inlineFilterName',
-			array(
-				'class'=>'path.to.FilterClass',
-				'propertyName'=>'propertyValue',
-			),
-		);
-	}
+        $dataProvider=new CActiveDataProvider('Article', array(
+            'criteria'=>$criteria,
+            'pagination'=>array(
+                'pageSize'=>20,
+                'route' => 'cat/index',
+                'pageVar' => 'page',
+            ),
+        ));
 
-	public function actions()
-	{
-		// return external action classes, e.g.:
-		return array(
-			'action1'=>'path.to.ActionClass',
-			'action2'=>array(
-				'class'=>'path.to.AnotherActionClass',
-				'propertyName'=>'propertyValue',
-			),
-		);
+        $data = compact('dataProvider');
+		$this->render('/home/index', $data);
 	}
-	*/
 }

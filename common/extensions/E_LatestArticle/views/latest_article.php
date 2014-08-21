@@ -4,7 +4,7 @@
         <ol class="order-list">
             <?php $i = 0; foreach($items as $item): $i++;?>
             <li>
-                <span><?php echo $i; ?></span><?php echo CHtml::link($item->getCutTitle(), Url::get('a/view', array('id'=>$item->id))); ?>
+                <span><?php echo $i; ?></span><?php echo EHtml::link($item->getCutTitle(), Url::get('a/index', array('id'=>$item->id))); ?>
             </li>
             <?php endforeach; ?>
         </ol>

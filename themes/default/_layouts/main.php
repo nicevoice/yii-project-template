@@ -5,9 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
     <title><?php $this->get_title(); ?></title>
-    <meta:keywords><?php echo $this->get_keywords() ?></meta:keywords>
-    <meta:keywords><?php echo $this->get_description() ?></meta:keywords>
-    <link rel="stylesheet" href="/css/qoofan.css"/>
+    <meta name="keywords" content="<?php echo $this->get_keywords() ?>" />
+    <meta name="description" content="<?php echo $this->get_description() ?>" />
+    <link rel="stylesheet" type="text/css" href="http://qoofan.com/assets/qoofan.css?v=1.13" />
+    <link rel="stylesheet" href="/css/qoofan.css?ver=1.15"/>
     <!--[if IE]>
     <style>
         #article-list .content h2 a, .name-title{

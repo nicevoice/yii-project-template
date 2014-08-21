@@ -2,8 +2,18 @@
 
 class AController extends BaseController
 {
-	public function actionIndex()
+	public function actionIndex($id)
 	{
-		$this->render('index');
+        $article = Article::model()->findByPk($id);
+        if (!$article) {
+            throw new CHttpException(Response::RESPONSE_CODE_404);
+        }
+
+        $article->source  = empty($article->source) ? false : json_decode($article->source);
+        $this->prepend_title([$article->title, $article->user->nickname]);
+        $this->set_description($article->description);
+        $this->prepend_keywords($article->keywords);
+
+        $this->render('/home/view', compact('article'));
 	}
 }

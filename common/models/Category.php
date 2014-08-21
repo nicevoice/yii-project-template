@@ -98,4 +98,5 @@ class Category extends CActiveRecord
 	{
 		return parent::model($className);
 	}
+
 }

@@ -14,6 +14,7 @@
  * @property integer $update_date
  * @property string  $img
  * @property string  $keywords
+ * @property string  $source
  */
 class Article extends CActiveRecord
 {
@@ -38,7 +39,7 @@ class Article extends CActiveRecord
             array('title', 'length', 'max' => 120),
             array('field_id', 'length', 'max' => 60),
             array('keywords', 'length', 'max' => 255),
-            array('clean_content, img', 'safe'),
+            array('clean_content, img,source', 'safe'),
             // The following rule is used by search().
             // @todo Please remove those attributes that should not be searched.
             array('id, title, user_id, description, content, clean_content, field_id, create_date, update_date, img, keywords', 'safe', 'on' => 'search'),
@@ -115,7 +116,7 @@ class Article extends CActiveRecord
      */
     public static function getLatestArticles($cnt = 10)
     {
-        $criteria = new CDbCriteria();
+        $criteria        = new CDbCriteria();
         $criteria->order = 'id desc';
         $criteria->limit = $cnt;
 
@@ -129,7 +130,7 @@ class Article extends CActiveRecord
      */
     public function getCutTitle($char = 15)
     {
-        return mb_substr($this->title, 0, $char, 'utf-8').'...';
+        return mb_substr($this->title, 0, $char, 'utf-8') . '...';
     }
 
     /**
@@ -141,6 +142,16 @@ class Article extends CActiveRecord
     public static function model($className = __CLASS__)
     {
         return parent::model($className);
+    }
+
+    public static function getUserLatestArticle($user_id, $count = 10)
+    {
+        $criteria = new CDbCriteria();
+        $criteria->compare('user_id', $user_id);
+        $criteria->limit = $count;
+        $criteria->order = 'id desc';
+
+        return self::model()->findAll($criteria);
     }
 
     /**

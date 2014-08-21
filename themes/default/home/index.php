@@ -1,7 +1,7 @@
 <?php
 $this->widget('zii.widgets.CListView', array(
     'dataProvider'  => $dataProvider,
-    'itemView'      => 'item',
+    'itemView'      => '/home/item',
     'itemsTagName'  => 'ul',
     'itemsCssClass' => 'article-list',
     'template'      => '{items}{pager}',

@@ -1,26 +1,32 @@
 <?php
+
 /**
  * @author: Rogee<rogeeyang@gmail.com>
  */
-
-class Input {
+class Input
+{
 
     public static function all()
     {
         return $_REQUEST;
     }
+
+    public static function controller()
+    {
+        return Yii::app()->controller;
+    }
+
     public static function type()
     {
         return self::get()->getRequestType();
     }
-    public function get($attr = null)
+
+    public static function get($attr = null)
     {
         $request = Yii::app()->request;
-        if (is_null($attr)) {
-            return $request;
-        }
-        return $request->$attr;
+        return $request->getParam($attr);
     }
+
     public static function post($attr = null)
     {
         if (is_null($attr)) {

@@ -3,10 +3,6 @@ class IndexController extends BaseController
 {
     public function actionIndex ()
     {
-//        echo Url::get('index/index', array('page'=>2));
-//        $var = Input::all();
-//        CVarDumper::dump($var);
-//        exit;
         $dataProvider=new CActiveDataProvider('Article', array(
             'criteria'=>array(
                 'order'=>'id DESC',
@@ -18,7 +14,7 @@ class IndexController extends BaseController
             ),
         ));
         $data = compact('dataProvider');
-        $this->render('index', $data);
+        $this->render('/home/index', $data);
     }
 
     public function actionError()
