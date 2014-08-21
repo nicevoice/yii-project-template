@@ -27,7 +27,6 @@ require_once($framework);
 include PATH_CONFIG . '/conf/alias.conf.php';
 $config = include PATH_CONFIG . '/_common.conf.php';
 
-
 //检查当前系统是否是生产环境
 defined('YII_DEBUG') or define('YII_DEBUG', true);
 defined('YII_TRACE_LEVEL') or define('YII_TRACE_LEVEL', 3);

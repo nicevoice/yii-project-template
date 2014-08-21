@@ -21,7 +21,7 @@ class BaseController extends CController
      */
     public function Ext($name, $param = array())
     {
-        $name          = ucfirst(strtolower($name));
+        $name          = ucfirst($name);
         $ext_full_path = sprintf("ext.E_%s.E_%s", $name, $name);
         $this->widget($ext_full_path, $param);
     }
