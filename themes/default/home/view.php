@@ -14,7 +14,7 @@
         $this->ext('Ad', array('position' => 'article-title-top'));
         $img = EHtml::image($article->img, $article->title);
         $this->ext('Ad', array('position' => 'article-image-top'));
-        echo EHtml::link($img, Url::get('a/index', array('id' => $article->id)));
+        echo EHtml::link($img, Url::get('a/index', array('id' => $article->id)), array('title'=>$article->title));
         $this->ext('Ad', array('position' => 'article-content-top'));
         echo $article->content;
         $this->ext('Ad', array('position' => 'article-content-bottom'));
