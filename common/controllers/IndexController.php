@@ -6,7 +6,7 @@ class IndexController extends BaseController
     {
         $criteria         = new CDbCriteria();
         $criteria->select = 'id, user_id, img, title, description, create_date';
-        $criteria->order  = 'id desc';
+        $criteria->order  = 't.id desc';
         $criteria->with   = array('user');
 
         $dataProvider = new CActiveDataProvider('Article', array(
