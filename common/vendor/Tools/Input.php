@@ -5,6 +5,10 @@
 
 class Input {
 
+    public static function all()
+    {
+        return $_REQUEST;
+    }
     public static function type()
     {
         return self::get()->getRequestType();
