@@ -4,9 +4,15 @@ class MpController extends BaseController
 {
 	public function actionIndex($id)
 	{
+        $mp = PublicUser::model()->findByPk($id);
+        $this->prepend_title($mp->nickname.'-');
+
         $criteria = new CDbCriteria();
         $criteria->compare('user_id', $id);
-        $criteria->order = 'id desc';
+        $criteria->order = 't.id desc';
+        $criteria->addCondition('t.id>0');
+        $criteria->with   = array('user');
+
 
         $dataProvider=new CActiveDataProvider('Article', array(
             'criteria'=>$criteria,
@@ -16,6 +22,7 @@ class MpController extends BaseController
                 'pageVar' => 'page',
             ),
         ));
+
 
         $data = compact('dataProvider');
         $this->render('/home/index', $data);

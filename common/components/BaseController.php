@@ -42,7 +42,7 @@ class BaseController extends CController
     }
 
 
-    protected function prepend_title($text)
+    public function prepend_title($text)
     {
         if (!is_array($text)) {
             $text = [$text];
@@ -51,7 +51,7 @@ class BaseController extends CController
         self::$_title = implode(' - ', $text) . self::$_title;
     }
 
-    protected function prepend_keywords($keywords)
+    public function prepend_keywords($keywords)
     {
         if (!is_array($keywords)) {
             $keywords = explode(',', $keywords);
@@ -61,7 +61,7 @@ class BaseController extends CController
     }
 
 
-    protected function set_description($description)
+    public function set_description($description)
     {
         self::$_description = $description;
     }

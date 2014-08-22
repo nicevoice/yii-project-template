@@ -8,6 +8,7 @@ class IndexController extends BaseController
         $criteria->select = 'id, user_id, img, title, description, create_date';
         $criteria->order  = 't.id desc';
         $criteria->with   = array('user');
+        $criteria->addCondition('t.id>0');
 
         $dataProvider = new CActiveDataProvider('Article', array(
             'criteria'   => $criteria,

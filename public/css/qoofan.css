@@ -230,16 +230,18 @@ h1 img, h2 img, h3 img, h4 img, h5 img, h6 img {margin:0;}
     display: block;
     line-height: 30px;
     margin-right: 20px;
+    color: #faf68d;
 }
 
 #nav .nav-list, #nav .nav-list ul li {
     float: left;
 }
 
-#nav .nav-list a:hover {
+#nav .nav-list a:hover,#nav .nav-list li.active a {
     background-color: #e8503c;
-    border-bottom: 4px solid #dc4733;
-    line-height: 26px;
+    color: #faf68d;
+    font-size: 110%;
+    font-weight: bold;
 }
 #nav .nav-list a {
     display: block;

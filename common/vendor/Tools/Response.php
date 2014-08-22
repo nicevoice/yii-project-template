@@ -17,8 +17,10 @@ class Response
         exit;
     }
 
-    public static function to_url($url, $code = 302)
+    public static function to($url, $code = 302)
     {
+        header('Location: '.$url, true, $code);
+        exit;
     }
 
     public static function to_action($controller, $action, $code = 302)

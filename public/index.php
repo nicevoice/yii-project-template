@@ -1,7 +1,11 @@
 <?php
 define('PATH_BASE', dirname(__FILE__) . '/../');
 define('PATH_CONFIG', PATH_BASE . 'config/');
-
+//检查当前系统是否是生产环境
+if (!file_exists(PATH_BASE . 'product.env')){
+    defined('YII_DEBUG') or define('YII_DEBUG', true);
+    defined('YII_TRACE_LEVEL') or define('YII_TRACE_LEVEL', 3);
+}
 function getConfig($name, $is_admin_conf = false)
 {
     $not_admin_suffix = '';
@@ -27,9 +31,7 @@ require_once($framework);
 include PATH_CONFIG . '/conf/alias.conf.php';
 $config = include PATH_CONFIG . '/_common.conf.php';
 
-//检查当前系统是否是生产环境
-defined('YII_DEBUG') or define('YII_DEBUG', true);
-defined('YII_TRACE_LEVEL') or define('YII_TRACE_LEVEL', 3);
+
 
 
 $app = Yii::createWebApplication($config);

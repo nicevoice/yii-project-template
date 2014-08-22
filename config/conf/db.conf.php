@@ -6,9 +6,17 @@ $conf = array(
     'password'           => 'adminhao0202',
     'charset'            => 'utf8',
     'tablePrefix'        => '',
-    'enableProfiling'    => true,
-    'enableParamLogging' => true,
+
 );
+if (!YII_DEBUG) {
+    $debug_conf = array(
+        'schemaCachingDuration' => 30*24*60*60,
+        'enableProfiling'    => true,
+        'enableParamLogging' => true,
+    );
+
+    $conf = array_merge($conf, $debug_conf);
+}
 
 return $conf;
 

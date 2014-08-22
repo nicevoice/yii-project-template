@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
-    <title><?php $this->get_title(); ?></title>
+    <title><?php echo $this->get_title(); ?></title>
     <meta name="keywords" content="<?php echo $this->get_keywords() ?>" />
     <meta name="description" content="<?php echo $this->get_description() ?>" />
     <link rel="stylesheet" href="/css/qoofan.css?ver=1.15"/>

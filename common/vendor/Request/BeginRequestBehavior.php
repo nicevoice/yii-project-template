@@ -17,9 +17,9 @@ class BeginRequestBehavior extends CBehavior
     {
         $browser = new CheckBrowser();
         if ($browser->isMobile() && $_SERVER['HTTP_HOST'] == 'qoofan.com') {
-            return $this->response->redirect('http://m.qoofan.com' . $_SERVER['REQUEST_URI']);
+            return Response::to('http://m.qoofan.com' . $_SERVER['REQUEST_URI'], Response::RESPONSE_CODE_302);
         } elseif (!$browser->isMobile() && $_SERVER['HTTP_HOST'] == 'm.qoofan.com') {
-            return $this->response->redirect('http://qoofan.com' . $_SERVER['REQUEST_URI']);
+            return Response::to('http://qoofan.com' . $_SERVER['REQUEST_URI'], Response::RESPONSE_CODE_302);
         }
     }
 
