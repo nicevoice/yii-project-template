@@ -28,7 +28,12 @@ class IndexController extends BaseController
             if (Yii::app()->request->isAjaxRequest)
                 echo $error['message'];
             else
-                $this->render('//_public/error', $error);
+            {
+                $suffix = '';
+                if (!YII_DEBUG) {$suffix = '-product';}
+
+                $this->render('//_public/error'.$suffix, $error);
+            }
         }
     }
 }
