@@ -6,6 +6,7 @@ class SitemapController extends BaseController
     private $index_file = 'sitemap.xml';
 	public function actionIndex()
 	{
+        set_time_limit(0);
         $last_page = Sitemap::model()->find(['select'=>'max(page) as page'])->page;
         if (intval($last_page) ==0 ) {
             $last_page = Sitemap::incr(0)->page;
@@ -24,11 +25,13 @@ class SitemapController extends BaseController
         $criteria->limit = $this->cnt;
 
         $items = Article::model()->findAll($criteria);
+        $item_cnt = count($items);
         $content = $this->renderPartial('item', compact('items'), true);
+        $items=null;
         file_put_contents("./_sitemap/$page.xml", $content);
 
         //按序列生成
-        if (count($items) == $this->cnt) {
+        if ($item_cnt == $this->cnt) {
             $new_page = Sitemap::incr($page)->page;
             $this->generateItemSitemap($new_page);
         }

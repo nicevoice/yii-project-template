@@ -4,7 +4,7 @@
     <?php foreach ($items as $item): ?>
     <url>
         <loc>http://qoofan.com<?php echo Url::get('mp/index', array('id'=>$item->id)); ?></loc>
-        <lastmod><?php echo date("Y-m-d", $item->create_date); ?></lastmod>
+        <lastmod><?php echo date("Y-m-d"); ?></lastmod>
         <changefreq>daily</changefreq>
         <priority>1.0</priority>
     </url>
