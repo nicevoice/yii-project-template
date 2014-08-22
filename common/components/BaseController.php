@@ -48,7 +48,7 @@ class BaseController extends CController
             $text = [$text];
         }
 
-        self::$_title = implode(' - ', $text) . self::$_title;
+        self::$_title = implode(' - ', $text) .'-'. self::$_title;
     }
 
     public function prepend_keywords($keywords)
