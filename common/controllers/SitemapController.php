@@ -15,6 +15,7 @@ class SitemapController extends BaseController
         $this->generateMpSitemap();
         $this->generateItemSitemap($last_page);
         $this->generateIndexSitemap();
+        echo "done";
     }
 
     private function generateItemSitemap($page){

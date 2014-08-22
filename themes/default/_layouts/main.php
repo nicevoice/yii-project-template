@@ -30,7 +30,7 @@
     <div class="container">
         <!--<div class="line"></div>-->
         <div class="text-center">
-            Copyright © 2012 - 2014 <a href="http://qoofan.com">酷饭网</a>. All Rights Reserved.<a href="http://qoofan.com/feed">Rss</a>
+            Copyright © 2012 - 2014 <a href="http://qoofan.com">酷饭网</a>. All Rights Reserved.<a href="http://qoofan.com/sitemap.xml">Sitemap</a>
         </div>
     </div>
 </div>
