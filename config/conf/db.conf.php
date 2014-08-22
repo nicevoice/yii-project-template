@@ -8,7 +8,7 @@ $conf = array(
     'tablePrefix'        => '',
 
 );
-if (!YII_DEBUG) {
+if (YII_DEBUG) {
     $debug_conf = array(
         'schemaCachingDuration' => 30*24*60*60,
         'enableProfiling'    => true,

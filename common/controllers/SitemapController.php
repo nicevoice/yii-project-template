@@ -25,7 +25,7 @@ class SitemapController extends BaseController
 
         $items = Article::model()->findAll($criteria);
         $content = $this->renderPartial('item', compact('items'), true);
-        file_put_contents("./sitemap/$page.xml", $content);
+        file_put_contents("./_sitemap/$page.xml", $content);
 
         //按序列生成
         if (count($items) == $this->cnt) {
@@ -38,20 +38,20 @@ class SitemapController extends BaseController
     {
         $items = Category::model()->findAll();
         $content = $this->renderPartial('cat', compact('items'), true);
-        file_put_contents("./sitemap/cat.xml", $content);
+        file_put_contents("./_sitemap/cat.xml", $content);
     }
 
     private function generateMpSitemap()
     {
         $items = PublicUser::model()->findAll();
         $content = $this->renderPartial('mp', compact('items'), true);
-        file_put_contents("./sitemap/mp.xml", $content);
+        file_put_contents("./_sitemap/mp.xml", $content);
     }
 
     private function generateIndexSitemap()
     {
         $items = Sitemap::model()->findAll();
         $content = $this->renderPartial('index', compact('items'), true);
-        file_put_contents('./sitemap.xml', $content);
+        file_put_contents('./_sitemap.xml', $content);
     }
 }

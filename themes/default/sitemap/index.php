@@ -2,16 +2,16 @@
 
 <sitemapindex>
     <sitemap>
-        <loc>http://qoofan.com/sitemap/cat.xml</loc>
+        <loc>http://qoofan.com/_sitemap/cat.xml</loc>
         <lastmod><?php echo date("Y-m-d"); ?></lastmod>
     </sitemap>
     <sitemap>
-        <loc>http://qoofan.com/sitemap/mp.xml</loc>
+        <loc>http://qoofan.com/_sitemap/mp.xml</loc>
         <lastmod><?php echo date("Y-m-d"); ?></lastmod>
     </sitemap>
     <?php foreach ($items as $item): ?>
     <sitemap>
-        <loc>http://qoofan.com/sitemap/<?php echo $item->page; ?>.xml</loc>
+        <loc>http://qoofan.com/_sitemap/<?php echo $item->page; ?>.xml</loc>
         <lastmod><?php echo date("Y-m-d", $item->update_date); ?></lastmod>
     </sitemap>
     <?php endforeach; ?>
