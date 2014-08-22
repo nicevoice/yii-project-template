@@ -55,6 +55,6 @@ class SitemapController extends BaseController
     {
         $items = Sitemap::model()->findAll();
         $content = $this->renderPartial('index', compact('items'), true);
-        file_put_contents('./_sitemap.xml', $content);
+        file_put_contents('./sitemap.xml', $content);
     }
 }
