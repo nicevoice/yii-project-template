@@ -5,7 +5,7 @@ class CatController extends BaseController
 	public function actionIndex($id)
 	{
         $cat = Category::model()->findByPk($id);
-        $this->prepend_title($cat->name . '-');
+        $this->prepend_title($cat->name);
 
         $cat_user = PublicUser::getCatUserIdList($id);
         $criteria = new CDbCriteria();

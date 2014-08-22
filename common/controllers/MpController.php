@@ -5,7 +5,7 @@ class MpController extends BaseController
 	public function actionIndex($id)
 	{
         $mp = PublicUser::model()->findByPk($id);
-        $this->prepend_title($mp->nickname.'-');
+        $this->prepend_title($mp->nickname);
 
         $criteria = new CDbCriteria();
         $criteria->compare('user_id', $id);
