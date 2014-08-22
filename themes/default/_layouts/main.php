@@ -7,6 +7,7 @@
     <title><?php echo $this->get_title(); ?></title>
     <meta name="keywords" content="<?php echo $this->get_keywords() ?>" />
     <meta name="description" content="<?php echo $this->get_description() ?>" />
+    <?php $this->ext('PageMeta'); ?>
     <link rel="stylesheet" href="/css/qoofan.css?ver=1.15"/>
     <!--[if IE]>
     <style>
