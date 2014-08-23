@@ -4,14 +4,15 @@
     </div>
     <div class="widget-info">
         <?php
+        $this->ext('Ad', array('position' => 'article-title-top'));
         $link = EHtml::link($article->user->nickname, Url::get('mp/index', array('id' => $article->user->id)), array('target' => '_blank'));
         $pub_date = date("Y年m月d日", $article->create_date);
         echo sprintf("%s 发表于 %s 微信头条文章", $link, $pub_date);
+        $this->ext('Ad', array('position' => 'article-title-bottom'));
         ?>
     </div>
     <div class="widget-content" id="article-content">
         <?php
-        $this->ext('Ad', array('position' => 'article-title-top'));
         $img = EHtml::image($article->img, $article->title);
         $this->ext('Ad', array('position' => 'article-image-top'));
         echo EHtml::link($img, Url::get('a/index', array('id' => $article->id)), array('title'=>$article->title));
