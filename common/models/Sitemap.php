@@ -122,10 +122,9 @@ class Sitemap extends CActiveRecord
     {
         $criteria = new CDbCriteria();
         $criteria->order = 'page desc';
-        $criteria->limit = 1;
 
         $model = self::model()->find($criteria);
-        $model->udpate_date = time();
+        $model->update_date = time();
         return $model->save();
     }
 }
