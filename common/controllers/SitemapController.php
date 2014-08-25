@@ -8,6 +8,7 @@ class SitemapController extends BaseController
 	{
         set_time_limit(0);
         $last_page = Sitemap::model()->find(['select'=>'max(page) as page'])->page;
+        Sitemap::updateUpdateMaxTime();
         if (intval($last_page) ==0 ) {
             $last_page = Sitemap::incr(0)->page;
         }
@@ -16,7 +17,7 @@ class SitemapController extends BaseController
         $this->generateMpSitemap();
         $this->generateItemSitemap($last_page);
         $this->generateIndexSitemap();
-        echo "done";
+        $this->redirect('http://qoofan.com/sitemap.xml');
     }
 
     private function generateItemSitemap($page){
